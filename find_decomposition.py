@@ -21,10 +21,11 @@ def find_decomposition(budget: list[float], preferences: list[set[int]]):
       print('no decompostition')
       return []
     for player in players_per_topic[i]:
-        if players_money[player] > 0:
-          amount_to_give = player_budget if budget[i] == len(players_per_topic[i])*player_budget else (player_budget - budget[i])
-          players_money[player] -= amount_to_give
-          ans.append(f"player {player} gave {amount_to_give} to item {i}")
+        if players_money[player] <= 0:
+          continue
+        amount_to_give = player_budget if budget[i] == len(players_per_topic[i])*player_budget else (player_budget - budget[i])
+        players_money[player] -= amount_to_give
+        ans.append(f"player {player} gave {amount_to_give} to item {i}")
   return ans
 
 budget = [400, 50, 50, 0]
