@@ -13,9 +13,7 @@ def get_players_for_topic(preferences):
 
 def find_decomposition(budget: list[float], preferences: list[set[int]]):
   players_per_topic = get_players_for_topic(preferences)
-  print(players_per_topic) 
   player_budget = sum(budget) / len(preferences)
-  print(player_budget)
   players_money = [player_budget for _ in range(len(preferences))]
   ans = []
   for i in range(len(budget)):
@@ -46,6 +44,7 @@ ans = find_decomposition(budget, preferences)
 # player 3 gave 50.0 to item 2
 for purchase in ans:
   print(purchase)
+print("----------------------------")
 budget = [0, 300]
 preferences = [{0}, {1}, {1}]
 ans = find_decomposition(budget, preferences)
@@ -53,6 +52,7 @@ ans = find_decomposition(budget, preferences)
 # no decomposition
 for purchase in ans:
   print(purchase)
+print("----------------------------")
 budget = [100, 200]
 preferences = [{0}, {1}, {1}]
 ans = find_decomposition(budget, preferences)
@@ -62,6 +62,7 @@ ans = find_decomposition(budget, preferences)
 # player 2 gave 100.0 to item 1
 for purchase in ans:
   print(purchase)
+print("----------------------------")
 
 budget = [150, 150]
 preferences = [{0, 1}, {0, 1}]
