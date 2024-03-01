@@ -1,4 +1,4 @@
-
+#IMPLEMENTED BY: BAR GOLDENBERG
 def get_players_for_topic(preferences):
   players_per_topic = {}
   player = 0
@@ -37,6 +37,7 @@ def find_decomposition(budget: list[float], preferences: list[set[int]]):
 
 budget = [400, 50, 50, 0]
 preferences = [{0, 1}, {0, 2}, {0, 3}, {1, 2}, {0}]
+ans = find_decomposition(budget, preferences)
 #Expected  - 
 # player 0 gave 100.0 to item 0
 # player 1 gave 100.0 to item 0
@@ -44,22 +45,21 @@ preferences = [{0, 1}, {0, 2}, {0, 3}, {1, 2}, {0}]
 # player 4 gave 100.0 to item 0
 # player 3 gave 50.0 to item 1
 # player 3 gave 50.0 to item 2
-ans = find_decomposition(budget, preferences)
 for purchase in ans:
   print(purchase)
-#Expected - 
-# no decomposition
 budget = [0, 300]
 preferences = [{0}, {1}, {1}]
 ans = find_decomposition(budget, preferences)
+#Expected - 
+# no decomposition
 for purchase in ans:
   print(purchase)
+budget = [100, 200]
+preferences = [{0}, {1}, {1}]
+ans = find_decomposition(budget, preferences)
 #Expected - 
 # player 0 gave 100.0 to item 0
 # player 1 gave 100.0 to item 1
 # player 2 gave 100.0 to item 1
-budget = [100, 200]
-preferences = [{0}, {1}, {1}]
-ans = find_decomposition(budget, preferences)
 for purchase in ans:
   print(purchase)
